@@ -1,16 +1,30 @@
-# React + Vite
+# System Design Frontend (Next.js)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This frontend renders the System Design School experience using [Next.js 14](https://nextjs.org/). The UI matches the original single-page implementation while taking advantage of Next.js routing and build tooling.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+The development server runs on [http://localhost:3000](http://localhost:3000).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Available Scripts
 
-## Expanding the ESLint configuration
+- `npm run dev` – start the Next.js development server
+- `npm run build` – create an optimized production build
+- `npm run start` – start the production build locally
+- `npm run lint` – run ESLint using the Next.js configuration
+- `npm run typecheck` – run TypeScript without emitting output
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+- `src/app` – Next.js App Router entry points (`/`, `/practice`, `/courses`, `/primer`, `/pricing`)
+- `src/components` – Shared UI components
+- `src/data` – Static data powering the UI
+- `src/views` – Page-level React components reused by the route handlers
+- `public` – Static assets served as-is
+
+Global styles live in `src/app/globals.css` and preserve the look and feel from the previous React build.

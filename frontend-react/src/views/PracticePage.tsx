@@ -1,5 +1,5 @@
-import PracticeList from '../components/practice/PracticeList'
-import { practiceQuestions } from '../data/practice'
+import PracticeList from '@/components/practice/PracticeList'
+import { practiceQuestions } from '@/data/practice'
 
 const PracticePage = () => {
   return (

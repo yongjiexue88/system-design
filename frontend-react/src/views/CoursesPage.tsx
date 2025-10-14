@@ -1,5 +1,5 @@
-import SystemDesignCard from '../components/cards/SystemDesignCard'
-import { courseSections } from '../data/courses'
+import SystemDesignCard from '@/components/cards/SystemDesignCard'
+import { courseSections } from '@/data/courses'
 
 const CoursesPage = () => {
   return (
@@ -11,6 +11,8 @@ const CoursesPage = () => {
             key={section.section}
             section={section.section}
             title={section.title}
+            summary={section.summary}
+            href={`/courses/${section.slug}`}
             completed={section.completed}
             total={section.total}
             topics={section.topics}

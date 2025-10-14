@@ -1,3 +1,6 @@
+'use client'
+
+import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import type { Topic } from '../../types/content'
 import { BookOpenIcon, CheckmarkIcon, ChevronDownIcon } from '../icons/IconLibrary'
@@ -5,12 +8,14 @@ import { BookOpenIcon, CheckmarkIcon, ChevronDownIcon } from '../icons/IconLibra
 interface SystemDesignCardProps {
   section: string
   title: string
+  summary?: string
+  href: string
   completed: number
   total: number
   topics: Topic[]
 }
 
-const SystemDesignCard = ({ section, title, completed, total, topics }: SystemDesignCardProps) => {
+const SystemDesignCard = ({ section, title, summary, href, completed, total, topics }: SystemDesignCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const progress = useMemo(() => {
     if (!total) {
@@ -26,6 +31,11 @@ const SystemDesignCard = ({ section, title, completed, total, topics }: SystemDe
         <div>
           <p style={{ color: 'var(--blue-500)', fontSize: '0.875rem', fontWeight: 600 }}>SECTION {section}</p>
           <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginTop: '0.25rem' }}>{title}</h2>
+          {summary ? (
+            <p className="text-tertiary" style={{ marginTop: '0.75rem', maxWidth: '26rem' }}>
+              {summary}
+            </p>
+          ) : null}
         </div>
         <div className="sd-card-header-icon">
           <BookOpenIcon />
@@ -66,9 +76,9 @@ const SystemDesignCard = ({ section, title, completed, total, topics }: SystemDe
           </ul>
         ) : null}
       </div>
-      <button className="sd-card-start-btn" type="button">
+      <Link href={href} className="sd-card-start-btn">
         Start Lesson
-      </button>
+      </Link>
     </div>
   )
 }

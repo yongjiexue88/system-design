@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import type { PrimerComment } from '../../types/content'
 import { ChatIcon, HeartIcon, PersonCircleIcon } from '../icons/IconLibrary'
 
@@ -43,7 +44,13 @@ const CommentItem = ({ comment }: CommentItemProps) => {
     <div className="comment-item">
       <div className="comment-item-avatar">
         {comment.user.avatar ? (
-          <img src={comment.user.avatar} alt={`${comment.user.name}'s avatar`} />
+          <Image
+            src={comment.user.avatar}
+            alt={`${comment.user.name}'s avatar`}
+            width={48}
+            height={48}
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
         ) : (
           <PersonCircleIcon />
         )}

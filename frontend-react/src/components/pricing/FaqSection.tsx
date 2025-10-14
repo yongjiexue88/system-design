@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import type { FaqItem } from '../../types/content'
 import { ChevronDownIcon } from '../icons/IconLibrary'

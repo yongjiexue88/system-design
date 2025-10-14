@@ -9,16 +9,47 @@ export interface Topic {
 export interface CourseSection {
   section: string
   title: string
+  slug: string
+  summary: string
   completed: number
   total: number
   topics: Topic[]
+  learningObjectives: string[]
+}
+
+export interface CourseDetailModule {
+  title: string
+  description: string
+}
+
+export interface CourseDetailContent {
+  slug: string
+  hero: string
+  overview: string
+  modules: CourseDetailModule[]
+  nextSteps?: string[]
 }
 
 export interface PracticeQuestion {
+  slug: string
   name: string
   companies: number
   difficulty: DifficultyLabel
   status: PracticeStatus
+  summary: string
+}
+
+export interface PracticeDetailSection {
+  title: string
+  description: string
+  bullets?: string[]
+}
+
+export interface PracticeDetailContent {
+  slug: string
+  overview: string
+  sections: PracticeDetailSection[]
+  practiceTips?: string[]
 }
 
 export interface PricingPlan {

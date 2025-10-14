@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import type { PracticeQuestion } from '../../types/content'
 
 interface PracticeListProps {
@@ -20,19 +21,23 @@ const PracticeList = ({ questions }: PracticeListProps) => {
             <p style={{ fontSize: '0.875rem' }} className="text-tertiary">
               {question.companies} Companies
             </p>
+            <p style={{ fontSize: '0.9rem', marginTop: '0.5rem' }} className="text-tertiary">
+              {question.summary}
+            </p>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             <span className={`practice-item-difficulty ${difficultyClassMap[question.difficulty]}`}>
               {question.difficulty}
             </span>
-            <button
-              className="sd-card-start-btn"
-              style={{ marginTop: 0 }}
-              disabled={question.status === 'Coming Soon'}
-              type="button"
-            >
-              {question.status}
-            </button>
+            {question.status === 'Start Now' ? (
+              <Link href={`/practices/${question.slug}`} className="sd-card-start-btn" style={{ marginTop: 0 }}>
+                Start Now
+              </Link>
+            ) : (
+              <button className="sd-card-start-btn" style={{ marginTop: 0 }} disabled type="button">
+                Coming Soon
+              </button>
+            )}
           </div>
         </div>
       ))}

@@ -1,16 +1,19 @@
+'use client'
+
+import Image from 'next/image'
 import { useState } from 'react'
-import CommentsSection from '../components/primer/CommentsSection'
-import CtaCard from '../components/primer/CtaCard'
-import PrimerMetadata from '../components/primer/PrimerMetadata'
-import PrimerSidebarNav from '../components/primer/PrimerSidebarNav'
-import PrimerTocNav from '../components/primer/PrimerTocNav'
+import CommentsSection from '@/components/primer/CommentsSection'
+import CtaCard from '@/components/primer/CtaCard'
+import PrimerMetadata from '@/components/primer/PrimerMetadata'
+import PrimerSidebarNav from '@/components/primer/PrimerSidebarNav'
+import PrimerTocNav from '@/components/primer/PrimerTocNav'
 import {
   primerComments,
   primerCta,
   primerMetadata,
   primerProblemSolutions,
   primerSidebarLinks,
-} from '../data/primer'
+} from '@/data/primer'
 
 const PrimerPage = () => {
   const [activeSection, setActiveSection] = useState('introduction')
@@ -34,9 +37,14 @@ const PrimerPage = () => {
         <div className="primer-article">
           <h1>System Design Primer</h1>
           <p>
-            <img
+            <Image
               src="https://placehold.co/800x400/64748b/FFFFFF?text=System+Design+Primer+Feature+Image"
               alt="System Design Primer"
+              width={800}
+              height={400}
+              style={{ width: '100%', height: 'auto', borderRadius: '0.75rem' }}
+              sizes="(max-width: 800px) 100vw, 800px"
+              priority
             />
           </p>
           <h2 id="introduction">Introduction</h2>
@@ -205,7 +213,14 @@ const PrimerPage = () => {
             Here is the common template to design scalable services (and therefore solve many system design problems):
           </p>
           <p>
-            <img src="https://placehold.co/800x400/64748b/FFFFFF?text=Design+Diagram" alt="design-diagram" />
+            <Image
+              src="https://placehold.co/800x400/64748b/FFFFFF?text=Design+Diagram"
+              alt="design-diagram"
+              width={800}
+              height={400}
+              style={{ width: '100%', height: 'auto', borderRadius: '0.75rem' }}
+              sizes="(max-width: 800px) 100vw, 800px"
+            />
           </p>
 
           <div className="youtube-container">

@@ -1,8 +1,9 @@
-import PricingCard from '../components/cards/PricingCard'
-import FeaturesSection from '../components/pricing/FeaturesSection'
-import FaqSection from '../components/pricing/FaqSection'
-import TargetAudience from '../components/pricing/TargetAudience'
-import { audiencePoints, faqs, featureHighlights, pricingPlans, testimonial } from '../data/pricing'
+import Image from 'next/image'
+import PricingCard from '@/components/cards/PricingCard'
+import FeaturesSection from '@/components/pricing/FeaturesSection'
+import FaqSection from '@/components/pricing/FaqSection'
+import TargetAudience from '@/components/pricing/TargetAudience'
+import { audiencePoints, faqs, featureHighlights, pricingPlans, testimonial } from '@/data/pricing'
 
 const PricingPage = () => {
   return (
@@ -24,10 +25,12 @@ const PricingPage = () => {
       <div className="section-container" style={{ textAlign: 'center' }}>
         <h2 className="section-title">Our user says it best</h2>
         <div className="cta-card" style={{ maxWidth: '42rem', margin: '0 auto' }}>
-          <img
+          <Image
             src={testimonial.avatar}
             alt={testimonial.name}
-            style={{ width: '4rem', height: '4rem', borderRadius: '9999px', margin: '0 auto 1rem' }}
+            width={64}
+            height={64}
+            style={{ width: '4rem', height: '4rem', borderRadius: '9999px', margin: '0 auto 1rem', objectFit: 'cover' }}
           />
           <blockquote className="text-secondary testimonial-quote">{testimonial.quote}</blockquote>
           <p style={{ fontWeight: 600, marginTop: '1rem' }}>{testimonial.name}</p>
