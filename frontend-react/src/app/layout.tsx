@@ -5,6 +5,9 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'System Design School',
   description: 'Learn, practice, and master system design topics with curated content and tools.',
+  icons: {
+    icon: '/icon.svg',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

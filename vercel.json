@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "frontend-react/next.config.mjs",
+      "src": "frontend-react/package.json",
       "use": "@vercel/next"
     },
     {
@@ -13,11 +13,11 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/backend-express/server.js"
+      "dest": "backend-express/server.js"
     },
     {
       "src": "/(.*)",
-      "dest": "/frontend-react"
+      "dest": "frontend-react/$1"
     }
   ]
 }
