@@ -14,6 +14,10 @@
     {
       "src": "/api/(.*)",
       "dest": "/backend-express/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend-react/$1"
     }
   ]
 }
