@@ -2,14 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "../backend-express/server.js",
+      "src": "frontend-react/next.config.mjs",
+      "use": "@vercel/next"
+    },
+    {
+      "src": "backend-express/server.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "../backend-express/server.js"
+      "dest": "/backend-express/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend-react"
     }
   ]
 }
